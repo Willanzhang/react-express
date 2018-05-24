@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Link } from 'react-router-dom'
+import { BrowserRouter, Route, Link, Redirect } from 'react-router-dom'
 const router = (<BrowserRouter>
   <ul>
     <li><Link to="/"></Link>    </li>  
