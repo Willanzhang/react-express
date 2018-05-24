@@ -4,8 +4,8 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import store from 'src/store'
-// import {store} from 'redux'
 import { Provider } from 'react-redux'
+import Router from 'src/routes'
 console.log(store.getState())
 // 新建store
 // const  store = createStore(counter)
@@ -17,7 +17,9 @@ console.log(store.getState())
 //结合插件使用 redux-devtools
 ReactDOM.render(
 	<Provider store={store}>
-		<App />
+		<Router>
+			<App />
+		</Router>
 	</Provider>, document.getElementById('root'));
 // store.subscribe(render)
 registerServiceWorker();
