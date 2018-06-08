@@ -52,7 +52,7 @@ class App extends Component {
             现在又 {num}
           </h1>
         </header>
-        <Button type="primary" onClick={() => addGunAsync()}>1 点击按钮</Button>
+        <Button type="primary" onClick={() => addGunAsync()}>1 异步添加按钮</Button>
         <Button type="primary" onClick={() => removeGun()}>1 减少按钮</Button>
         <Button type="primary" onClick={() => addGun()}>1 点击按钮</Button>
         <Button type="primary" onClick={() => this.love(12)}>1 love</Button>

@@ -1,5 +1,8 @@
 import { BrowserRouter as Router, Route, Link, Redirect, Switch } from 'react-router-dom'
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { addGun, removeGun, addGunAsync } from 'src/store/actions/auth'
+import DashBoard from 'pages/dashBoard'
 
 function asyncComponent(importComponent) {
   class AsyncComponent extends Component {
@@ -25,34 +28,22 @@ function asyncComponent(importComponent) {
       return C ? <C {...this.props} /> : null;
     }
   }
-
   return AsyncComponent;
 }
+const Auth = asyncComponent(() => import("pages/auth"))
 
-// const Setting =  import("components/setting")
-// const Menu =  import("components/menu")
-// const Home =  import("components/home")
-const Setting = asyncComponent(() => import("components/setting"))
-const Menu = asyncComponent(() => import("components/menu"))
-const Home = asyncComponent(() => import("components/home"))
+
 class Routers extends Component {
   render() {
-    return (<div>
+    const app = (<div>
       <Router>
         <div>
-          <ul>
-            <li><Link to="/">home</Link></li>
-            <li><Link to="/setting">menu</Link></li>
-            <li><Link to="/menu">setting</Link> </li>
-          </ul>
-          <Switch>
-            <Route path="/" exact component={Home}></Route>
-            <Route path="/setting" exact component={Setting}></Route>
-            <Route path="/menu" exact component={Menu}></Route>
-          </Switch>
+          <DashBoard/>
+          <Route path="/login" exact component={Auth}></Route>
         </div>
       </Router>
     </div>)
+    return app
   }
 }
 export default Routers
