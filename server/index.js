@@ -7,7 +7,11 @@ app.get('/',function (req, res) {
 })
 
 app.get('/data', function (req,res) {
-    res.json({name: 'a'})
+    res.json({
+	isAuth:true,
+	user: '张博文',
+	age: 20
+})
 })
 app.listen(9093, function() {
     console.log('node app ')

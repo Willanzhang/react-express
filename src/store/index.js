@@ -10,10 +10,13 @@ const reducers = combineReducers({
 
 const reduxDevtools = window.devToolsExtension? window.devToolsExtension(): () => {}
 
-const store = createStore(reducers,compose(
-	applyMiddleware(thunk),
-	reduxDevtools
-))
+// 中间件没有返回 报错
+// const store = createStore(reducers,compose(
+// 	applyMiddleware(thunk),
+// 	reduxDevtools
+// ))
+// const store = createStore(reducers)
 
 
+const store = createStore(reducers,applyMiddleware(thunk))
 export default store
